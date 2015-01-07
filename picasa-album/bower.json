@@ -1,0 +1,17 @@
+{
+  "name": "picasa-album",
+  "version": "0.0.0",
+  "keywords": [
+    "seed",
+    "polymer",
+    "web-components"
+  ],
+  "main": "picasa-album.html",
+  "dependencies": {
+    "polymer": "Polymer/polymer#^0.5.1",
+    "basic-sequence": "*"
+  },
+  "devDependencies": {
+    "web-component-tester": "Polymer/web-component-tester#^2.0.0"
+  }
+}
