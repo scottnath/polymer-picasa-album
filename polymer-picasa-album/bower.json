@@ -1,0 +1,7 @@
+{
+  "name": "polymer-picasa-album#gh-pages",
+  "private": true,
+  "dependencies": {
+    "picasa-album": "scottnath/polymer-picasa-album#master"
+  }
+}
