@@ -10,18 +10,18 @@ Element providing solution to no problem in particular.
     <picasa-album></picasa-album>
 
 @element picasa-album
-@blurb Element providing solution to no problem in particular.
+@blurb Element for displaying a picasa
 @status alpha
-@homepage http://polymerlabs.github.io/picasa-album
+@homepage http://scottnath.github.io/polymer-picasa-album
 -->
-<polymer-element name="picasa-album" attributes="notitle author">
+<polymer-element name="picasa-album" attributes="user albumid">
 
   <template>
 
     <link rel="stylesheet" href="picasa-album.css" />
 
     <core-ajax
-      url="https://picasaweb.google.com/data/feed/base/user/111842695242051118098/albumid/6090297544948899153"
+      url="https://picasaweb.google.com/data/feed/base/user/{{user}}/albumid/{{albumid}}"
       params='{
         "alt":"json",
         "kind":"photo",
@@ -48,27 +48,43 @@ Element providing solution to no problem in particular.
 
     Polymer({
 
-      ready: function() {
-        // Ready is a lifecycle callback.
-        // You can do setup work in here.
-        // More info: http://www.polymer-project.org/docs/polymer/polymer.html#lifecyclemethods
-      },
+
 
       /**
-       * The `clickEventPrevious` method will advance the images backwards. Functionality comes from basic-sequence (https://github.com/basic-web-components/basic-sequence)
+       * The `user` attribute is the numerical id of a Picasa/Google Plus user
+       *
+       * @attribute user
+       * @type num
+       * @default '106063255260898090789'
+       */
+      user: '106063255260898090789',
+
+      /**
+       * The `albumid` attribute is the numerical id of a Picasa/Google Plus photo album
+       *
+       * @attribute albumid
+       * @type num
+       * @default '6075652748550751457'
+       */
+      albumid: '6075652748550751457',
+
+      /**
+       * The `clickEventPrevious` method will advance the images backwards.
+       * Functionality comes from basic-sequence (https://github.com/basic-web-components/basic-sequence)
        *
        * @method clickEventPrevious
        */
       clickEventPrevious: function() {
-        this.shadowRoot.querySelector('#sequence').previous();
+        this.$.sequence.previous();
       },
       /**
-       * The `clickEventNext` method will advance the images forward. Functionality comes from basic-sequence (https://github.com/basic-web-components/basic-sequence)
+       * The `clickEventNext` method will advance the images forward.
+       * Functionality comes from basic-sequence (https://github.com/basic-web-components/basic-sequence)
        *
        * @method clickEventPrevious
        */
       clickEventNext: function() {
-        this.shadowRoot.querySelector('#sequence').next();
+        this.$.sequence.next();
       }
 
     });
